@@ -98,8 +98,10 @@ public class SequentialList<T> implements List<T> {
         if (size == array.length) {
             throw new IndexOutOfBoundsException("栈溢出");
         }
-        for (int i = 1; i < size; i++) {
-            array[i] = array[i - 1];
+        if (!isEmpty()) {
+            for (int i = 1; i < size; i++) {
+                array[i] = array[i - 1];
+            }
         }
         array[0] = t;
     }
